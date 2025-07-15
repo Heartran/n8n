@@ -4,7 +4,8 @@ services:
     env: docker
     plan: free
     region: oregon  # Scegli la regione più vicina a te
-    dockerfile: Dockerfile.render
+    dockerfile: Dockerfile
+    dockerContext: .
     envVars:
       - key: N8N_HOST
         value: 0.0.0.0
