@@ -1,16 +1,17 @@
-# Use the official n8n Docker image as base
+# Usa l'immagine ufficiale di n8n
 FROM n8nio/n8n:latest
 
-# Set environment variables
+# Imposta le variabili d'ambiente
 ENV N8N_HOST=0.0.0.0
-ENV N8N_PORT=8080
+ENV N8N_PORT=5678
 ENV N8N_PROTOCOL=https
 ENV NODE_ENV=production
-ENV WEBHOOK_URL=https://${RENDER_SERVICE_NAME}.onrender.com
-ENV N8N_EDITOR_BASE_URL=https://${RENDER_SERVICE_NAME}.onrender.com
+ENV WEBHOOK_URL=https://n8n-pi0k.onrender.com
+ENV N8N_EDITOR_BASE_URL=https://n8n-pi0k.onrender.com
+ENV N8N_DIAGNOSTICS_ENABLED=false
 
-# Expose port 8080
-EXPOSE 8080
+# Esponi la porta 5678 (quella usata da n8n)
+EXPOSE 5678
 
-# Start n8n
+# Avvia n8n
 CMD ["n8n", "start"]

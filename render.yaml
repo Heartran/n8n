@@ -3,21 +3,20 @@ services:
     name: n8n
     env: docker
     plan: free
-    region: oregon  # Choose the region closest to you
-    buildCommand: pnpm install --frozen-lockfile && pnpm build
-    startCommand: cd packages/cli/bin && node n8n start
+    region: oregon  # Scegli la regione più vicina a te
+    dockerfile: Dockerfile.render
     envVars:
       - key: N8N_HOST
         value: 0.0.0.0
       - key: N8N_PORT
-        value: 8080
+        value: 5678
       - key: N8N_PROTOCOL
         value: https
       - key: N8N_EDITOR_BASE_URL
-        value: https://${RENDER_SERVICE_NAME}.onrender.com
+        value: https://n8n-pi0k.onrender.com
       - key: NODE_ENV
         value: production
       - key: N8N_ENCRYPTION_KEY
         generateValue: true
-    healthCheckPath: /healthz
-    autoDeploy: true
+      - key: N8N_DIAGNOSTICS_ENABLED
+        value: "false"
