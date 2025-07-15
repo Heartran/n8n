@@ -3,9 +3,10 @@ services:
     name: n8n
     env: docker
     plan: free
-    region: oregon  # Scegli la regione più vicina a te
+    region: oregon
     dockerfile: Dockerfile
     dockerContext: .
+    healthCheckPath: /n8n/healthz
     envVars:
       - key: N8N_HOST
         value: 0.0.0.0
@@ -15,9 +16,13 @@ services:
         value: https
       - key: N8N_EDITOR_BASE_URL
         value: https://n8n-j03d.onrender.com
+      - key: N8N_PATH
+        value: /n8n
       - key: NODE_ENV
         value: production
       - key: N8N_ENCRYPTION_KEY
         generateValue: true
       - key: N8N_DIAGNOSTICS_ENABLED
         value: "false"
+      - key: WEBHOOK_URL
+        value: https://n8n-j03d.onrender.com
