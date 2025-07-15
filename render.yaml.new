@@ -3,7 +3,8 @@ services:
     name: n8n
     env: docker
     plan: free
-    region: oregon  # Scegli la regione più vicina a te
+    region: oregon
+    dockerContext: .
     dockerfile: Dockerfile.render
     envVars:
       - key: N8N_HOST
@@ -20,3 +21,5 @@ services:
         generateValue: true
       - key: N8N_DIAGNOSTICS_ENABLED
         value: "false"
+      - key: WEBHOOK_URL
+        value: https://n8n-j03d.onrender.com

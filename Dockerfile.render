@@ -6,8 +6,8 @@ ENV N8N_HOST=0.0.0.0
 ENV N8N_PORT=5678
 ENV N8N_PROTOCOL=https
 ENV NODE_ENV=production
-ENV WEBHOOK_URL=https://n8n-pi0k.onrender.com
-ENV N8N_EDITOR_BASE_URL=https://n8n-pi0k.onrender.com
+ENV WEBHOOK_URL=https://n8n-j03d.onrender.com
+ENV N8N_EDITOR_BASE_URL=https://n8n-j03d.onrender.com
 ENV N8N_DIAGNOSTICS_ENABLED=false
 
 # Esponi la porta 5678 (quella usata da n8n)
