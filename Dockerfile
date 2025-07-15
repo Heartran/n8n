@@ -1,5 +1,19 @@
-# Usa l'immagine ufficiale di n8n
-FROM n8nio/n8n:latest
+# Usa l'immagine ufficiale di n8n con Node.js 18
+FROM node:18-slim
+
+# Installa le dipendenze di sistema
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    python3 \
+    g++ \
+    make \
+    && rm -rf /var/lib/apt/lists/*
+
+# Installa n8n globalmente
+RUN npm install n8n -g
+
+# Crea la directory di lavoro
+WORKDIR /data
 
 # Imposta le variabili d'ambiente
 ENV N8N_HOST=0.0.0.0
